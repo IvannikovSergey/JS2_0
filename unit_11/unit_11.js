@@ -132,7 +132,11 @@ document.querySelector('.b-8').onclick = f8;
 let d9 = [100, 200, 300, 400, 700, 121];
 
 function f9() {
-
+    let tmpArr = [];
+    for (let i = 1; i < d9.length; i++) {
+        tmpArr.push(d9[i]);
+    }
+    d9 = tmpArr;
     showArr('.out-9', d9);
 }
 
@@ -147,7 +151,7 @@ document.querySelector('.b-9').onclick = f9;
 let d10 = [3, 14, 15, 92, 6];
 
 function f10() {
-
+    d10.reverse();
     showArr('.out-10', d10);
 }
 
@@ -163,7 +167,8 @@ document.querySelector('.b-10').onclick = f10;
 let d11 = [2, 3, 4, 5, 6, 7];
 
 function f11() {
-
+    let a = +document.querySelector('.i-11').value;
+    document.querySelector('.out-11').textContent = d11.indexOf(a);
 }
 
 document.querySelector('.b-11').onclick = f11;
@@ -178,7 +183,16 @@ document.querySelector('.b-11').onclick = f11;
 let d12 = [6, 62, 60, 70, 1, 5];
 
 function f12() {
-
+    let out = document.querySelector('.out-12');
+    let a = +document.querySelector('.i-12').value;
+    let res = -1;
+    for (let i = 0; i < d12.length; i++) {
+        if (a === d12[i]) {
+            res = i;
+            break;
+        }        
+    }
+    out.innerHTML = res;
 }
 
 document.querySelector('.b-12').onclick = f12;
@@ -193,7 +207,11 @@ document.querySelector('.b-12').onclick = f12;
 let d13 = [6, 0, 22, 1, 4, 76];
 
 function f13() {
-
+    let tmpArr = [];
+    for (let i = d13.length - 1; i >= 0; i--) {
+        tmpArr.push(d13[i]);
+    }
+    d13 = tmpArr;
     showArr('.out-13', d13);
 }
 
@@ -209,7 +227,11 @@ document.querySelector('.b-13').onclick = f13;
 let d14 = [];
 
 function f14() {
-
+    d14 = [];
+    let a = +document.querySelector('.i-14').value;
+    for (let i = 0; i < a; i++) {
+        d14.push(1);
+    }
     showArr('.out-14', d14);
 }
 
@@ -224,8 +246,11 @@ document.querySelector('.b-14').onclick = f14;
 let d15 = [0, 2, 5, -4, 6, 22, -9, -12, 8, 12, 13, 78];
 
 function f15() {
-
-
+    let a  = +document.querySelector('.i-15').value;
+    let res = -1;
+    if (d15.indexOf(a) === res) {
+        d15.push(a);
+    }
     showArr('.out-15', d15);
 }
 
