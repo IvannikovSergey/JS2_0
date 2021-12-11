@@ -267,7 +267,7 @@ let d161 = [5, 6, 7, 8, 9];
 let d162 = [23, 24, 56, 87];
 
 function f16() {
-
+    d16 = d161.concat(d162);
     showArr('.out-16', d16);
 }
 
@@ -284,7 +284,14 @@ let d171 = ['a', 'b', 'c', 'd'];
 let d172 = [1, 2, 3, 4, 5];
 
 function f17() {
-
+    d17 = [];
+    for (let i = 0; i < d171.length; i++) {
+        d17.push(d171[i]);
+    }
+    for (let j = 0; j < d172.length; j++) {
+        d17.push(d172[j]);
+    }
+    console.log(d17);
     showArr('.out-17', d17);
 }
 
@@ -300,7 +307,8 @@ document.querySelector('.b-17').onclick = f17;
 let d18 = ['b', 'c', '45', 'e', 'z', 'y'];
 
 function f18() {
-
+    let a = document.querySelector('.i-18').value;
+    document.querySelector('.out-18').textContent = d18.includes(a);
 }
 
 document.querySelector('.b-18').onclick = f18;
@@ -316,7 +324,13 @@ let d19 = ['Your', 'payment', 'method', 'will', 'automatically', 'be', 'charged'
 let maxString = '';
 
 function f19() {
-
+    maxString = d19[0];
+    for (let i = 0; i < d19.length; i++) {
+        if (d19[i].length > maxString.length) {
+            maxString = d19[i];
+        }
+    }
+    document.querySelector('.out-19').innerHTML = maxString;
 }
 
 document.querySelector('.b-19').onclick = f19;
