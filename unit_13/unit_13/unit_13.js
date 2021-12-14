@@ -152,7 +152,14 @@ let a8 = {
 };
 
 function f8() {
-
+    let a = document.querySelector('.i-8').value;
+    let out = document.querySelector('.out-8');
+    if (a8[a] !== undefined) {
+        out.innerHTML = a8[a];
+    }
+    else {
+        out.innerHTML = 0;
+    }
 }
 
 document.querySelector('.b-8').onclick = f8;
@@ -169,7 +176,14 @@ let a9 = {
 };
 
 function f9() {
-
+    let a = document.querySelector('.i-9').value;
+    let out = '';
+    for (let k in a9) {
+        if (a9[k] == a) {
+            out += k + ' ';
+        }
+    }
+    document.querySelector('.out-9').innerHTML = out;
 }
 
 document.querySelector('.b-9').onclick = f9;
@@ -368,4 +382,4 @@ function f20() {
 
 }
 
-document.querySelector('.b-20').onclick = f20
+document.querySelector('.b-20').onclick = f20;
