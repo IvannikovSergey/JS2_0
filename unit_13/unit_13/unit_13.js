@@ -113,7 +113,10 @@ let a6 = {
 };
 
 function f6() {
-
+    let a = document.querySelector('.i-61').value;
+    let b = document.querySelector('.i-62').value;
+    a6[a] = b;
+    f5(a6, '.out-6');
 }
 
 document.querySelector('.b-6').onclick = f6;
@@ -128,7 +131,14 @@ let a7 = {
 
 
 function f7() {
-
+    let a = document.querySelector('.i-7').value;
+    let out = document.querySelector('.out-7');
+        if (a7[a] !== undefined) {
+            out.innerHTML = 1;
+        }
+        else {
+            out.innerHTML = 0;
+        }
 }
 
 document.querySelector('.b-7').onclick = f7;
