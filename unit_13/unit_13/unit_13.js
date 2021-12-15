@@ -225,7 +225,7 @@ let a11 = {
 function f11() {
     let a = document.querySelector('.i-11').value;
     for (let k in a11) {
-        if (a11[k] == a) {
+        if (k == a) {
             delete a11[k];
         }
     }
@@ -246,7 +246,13 @@ let a12 = {
 };
 
 function f12() {
-
+    let a = document.querySelector('.i-12').value;
+    for (let k in a12) {
+        if (a12[k] == a) {
+            delete a12[k];
+        }
+    }
+    f5(a12, '.out-12');
 }
 
 document.querySelector('.b-12').onclick = f12;
