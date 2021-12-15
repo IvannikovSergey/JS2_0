@@ -293,7 +293,7 @@ let a14 = {
 function f14() {
     let out = '';
     for (let k in a14) {
-        out += a14[0] + ' ';
+        out += a14[k][0] + ' ';
     }
     document.querySelector('.out-14').innerHTML = out;
 }
@@ -314,7 +314,13 @@ let a15 = {
 };
 
 function f15() {
-
+    let out = '';
+    for (let k in a15) {
+        for (let i = 0; i < a15[k].length; i++) {
+            out += a15[k][i] + ' ';
+        }
+    }
+    document.querySelector('.out-15').innerHTML = out;
 }
 
 document.querySelector('.b-15').onclick = f15;
@@ -338,7 +344,11 @@ let a16 = {
 }
 
 function f16() {
-
+    let out = '';
+    for (let k in a16) {
+        out += a16[k]['name'] + ' ';
+    }
+    document.querySelector('.out-16').innerHTML = out;
 }
 
 document.querySelector('.b-16').onclick = f16;
@@ -363,7 +373,13 @@ let a17 = {
 }
 
 function f17() {
-
+    let out = '';
+    for (let k in a17) {
+        if (a17[k]['age'] > 30) {
+            out += a17[k]['name'] + ' ';
+        }
+    }
+    document.querySelector('.out-17').innerHTML = out;
 }
 
 document.querySelector('.b-17').onclick = f17;
