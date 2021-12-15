@@ -268,7 +268,13 @@ let a13 = {
 };
 
 function f13() {
-
+    let sum = 0;
+    for (let k in a13) {
+        if (typeof a13[k] == 'number') {
+            sum += a13[k];
+        }
+    }
+    document.querySelector('.out-13').innerHTML = sum;
 }
 
 document.querySelector('.b-13').onclick = f13;
@@ -285,8 +291,13 @@ let a14 = {
 };
 
 function f14() {
-
+    let out = '';
+    for (let k in a14) {
+        out += a14[0] + ' ';
+    }
+    document.querySelector('.out-14').innerHTML = out;
 }
+
 
 document.querySelector('.b-14').onclick = f14;
 
