@@ -69,6 +69,7 @@ let a4 = {
     "odd": "hi",
     "mix": "mix"
 };
+
 function f4() {
     let out = '';
     for (let key in a4) {
@@ -87,10 +88,10 @@ document.querySelector('.b-4').onclick = () => {
 
 function f5(arr, block) {
     let out = '';
-    for (let key in arr) {  // цикл
+    for (let key in arr) { // цикл
         out += `${key} : ${arr[key]} <br>`;
-    }   //
-    document.querySelector(block).innerHTML = out;  // тут вывод в блок block
+    } //
+    document.querySelector(block).innerHTML = out; // тут вывод в блок block
 }
 
 // давайте протестируем f5
@@ -135,8 +136,7 @@ function f7() {
     let out = document.querySelector('.out-7');
     if (a7[a] !== undefined) {
         out.innerHTML = 1;
-    }
-    else {
+    } else {
         out.innerHTML = 0;
     }
 }
@@ -156,8 +156,7 @@ function f8() {
     let out = document.querySelector('.out-8');
     if (a8[a] !== undefined) {
         out.innerHTML = a8[a];
-    }
-    else {
+    } else {
         out.innerHTML = 0;
     }
 }
@@ -394,8 +393,16 @@ let a18 = {
 }
 
 function f18() {
-
+    let a = document.querySelector('.i-18').value;
+    let out = '';
+    if (a18[a] !== undefined) {
+        for (let i = 0; i < a18[a].length; i++) {
+            out += a18[a][i] + ' ';
+        }
+    }
+    document.querySelector('.out-18').innerHTML = out;
 }
+document.querySelector('.b-18').onclick = f18;
 
 // Task 19
 // При нажатии b-19 выполняете функцию f19. Функция должна в out-19 вывести цвет ветки станции которую пользователь ввел в i-19. Пользователь может вводить текст как с большой, так и с маленькой буквы. Если ветка не найдена - выводите пустую строку.
@@ -417,9 +424,24 @@ document.querySelector('.b-19').onclick = f19;
 // При нажатии b-20 выполняете функцию f20. Функция должна в out-20 вывести название станции которые содержат переход на другую ветку. Такие станции маркируются 2. Вывод через пробел
 
 let a20 = {
-    "red": [['Akademmistechko', 1], ['Nyvky', 0], ['Universytet', 3], ['Lisova', 1]],
-    "blue": [['Minska', 1], ['Obolon', 0], ['Pochaina', 2], ['Holosiivska', 0]],
-    "green": [['Syrets', 1], ['Zoloti Vorota', 2], ['Klovska', 0], ['Vidubichi', 1]],
+    "red": [
+        ['Akademmistechko', 1],
+        ['Nyvky', 0],
+        ['Universytet', 3],
+        ['Lisova', 1]
+    ],
+    "blue": [
+        ['Minska', 1],
+        ['Obolon', 0],
+        ['Pochaina', 2],
+        ['Holosiivska', 0]
+    ],
+    "green": [
+        ['Syrets', 1],
+        ['Zoloti Vorota', 2],
+        ['Klovska', 0],
+        ['Vidubichi', 1]
+    ],
 }
 
 function f20() {
