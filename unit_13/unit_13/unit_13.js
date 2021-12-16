@@ -415,7 +415,17 @@ let a19 = {
 }
 
 function f19() {
-
+    let a = document.querySelector('.i-19').value;
+    let out = '';
+    a = a.toLowerCase();
+    for (let k in a19) {
+        for (let i = 0; i < a19[k].length; i++) {
+            if (a19[k][i].toLowerCase() == a) {
+                out += k + ' ';
+            }
+        }
+    }
+    document.querySelector('.out-19').innerHTML = out;
 }
 
 document.querySelector('.b-19').onclick = f19;
@@ -445,7 +455,15 @@ let a20 = {
 }
 
 function f20() {
-
+    let out = '';
+    for (let k in a20) {
+        for (let i = 0; i < a20[k].length; i++) {
+            if (a20[k][i][1] == 2) {
+                out += a20[k][i][0] + ' ';
+            }
+        }
+    }
+    document.querySelector('.out-20').innerHTML = out;
 }
 
 document.querySelector('.b-20').onclick = f20;
