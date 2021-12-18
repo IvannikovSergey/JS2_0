@@ -133,7 +133,13 @@ document.querySelector('.b-9').onclick = () => {
 // Task 10
 // При нажатии b-10 выполняете функцию f10. Функция должна принимать набор set в качестве параметра и выводить его в указанный элемент. Элемент указывается как второй параметр функции f10. Вывод значений - через пробел.
 
-const f10 = (out_set, elem) => {}
+const f10 = (out_set, elem) => {
+    let out = '';
+    for (let i of out_set) {
+        out += i + ' ';
+    }
+    document.querySelector(elem).innerHTML = out;
+}
 
 document.querySelector('.b-10').onclick = () => {
     let a10 = new Set(['4', '5', '6']);
@@ -160,7 +166,8 @@ document.querySelector('.b-11').onclick = f11;
 let str12 = 'The name conjures up visions of plum pudding and Christmas punch quaint coaching inns and cozy firesides but also of orphaned and starving children';
 
 const f12 = () => {
-
+    let s = new Set(str12);
+    return s;
 }
 
 document.querySelector('.b-12').onclick = () => {
@@ -176,8 +183,18 @@ let str13 = 'The name conjures up visions of plum pudding and Christmas punch qu
 
 
 const f13 = () => {
-
-    // return
+    let s13 = new Set(str13);
+    let obj = {};
+    for (let item of s13) {
+        let count = 0;
+        for (let j = 0; j < str13.length; j++) {
+            if (item === str13[j]) {
+                count++;
+            }
+        }
+        obj[item] = count;
+    }
+    return obj;
 }
 
 document.querySelector('.b-13').onclick = () => {
