@@ -19,6 +19,7 @@ let a1_res = [],
 let a1 = [4, 5, 6, 7, 12, 34, 56, 78, 90, 11];
 
 function t1() {
+    a1_res = [];
     a1_res = a1.map(elem => {
         return elem * 2;
     });
@@ -35,7 +36,11 @@ document.querySelector('.b-1').onclick = () => {
 let a2 = [2, 3, 4, 5, 10, 11, 12];
 
 function t2() {
-
+    a2_res = [];
+    a2_res = a2.map(elem => {
+        return elem * elem;
+    });
+    return a2_res;
 }
 
 document.querySelector('.b-2').onclick = () => {
@@ -50,7 +55,11 @@ document.querySelector('.b-2').onclick = () => {
 let a3 = [4, "3", 6, 7, "12", 34, "56", 78, 90, 11];
 
 function t3() {
-
+    a3_res = [];
+    a3_res = a3.map(elem => {
+        return parseInt(elem, 10);
+    });
+    return a3_res;
 }
 
 document.querySelector('.b-3').onclick = () => {
@@ -64,7 +73,13 @@ document.querySelector('.b-3').onclick = () => {
 let a4 = [4, "3", 6, 7, "12", 34, "56", 78, 90, 11];
 
 function t4() {
-
+    a4_res = [];
+    a4_res = a4.filter(elem => {
+        if (typeof elem == 'number') {
+            return true;
+        }
+    });
+    return a4_res;
 }
 
 document.querySelector('.b-4').onclick = () => {
@@ -79,7 +94,13 @@ document.querySelector('.b-4').onclick = () => {
 let a5 = [3, 14, 15, 92, '6'];
 
 function t5() {
-
+    a5_res = [];
+    a5_res = a5.filter(elem => {
+        if (typeof elem == 'number' && elem % 2 == 0) {
+            return true;
+        }
+    });
+    return a5_res;
 }
 
 document.querySelector('.b-5').onclick = () => {
@@ -94,7 +115,13 @@ document.querySelector('.b-5').onclick = () => {
 let a6 = [3, 14, 15, 92, "6", "5", "hello", 32];
 
 function t6() {
-
+    a6_res = [];
+    a6_res = a6.filter(elem => {
+        if (typeof elem == 'number' && elem > 14) {
+            return true;
+        }
+    });
+    return a6_res;
 }
 
 document.querySelector('.b-6').onclick = () => {
@@ -236,8 +263,7 @@ document.querySelector('.b-14').onclick = () => {
 ]
 */
 
-let a15 = [
-    {
+let a15 = [{
         "name": "ivanov",
         "pnum": 'tr7862'
     },
