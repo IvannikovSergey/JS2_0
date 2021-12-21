@@ -46,7 +46,7 @@ document.querySelector('.b-3').addEventListener('click', f3);
 function f4() {
     let divs = document.querySelectorAll('.out-4');
     for (let k in divs) {
-        divs[k].innerHTML = 4;
+        divs[k].innerHTML += 4;
     }
 }
 
