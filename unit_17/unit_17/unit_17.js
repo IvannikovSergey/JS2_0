@@ -135,7 +135,11 @@ document.querySelector('.b-6').onclick = () => {
 let a7 = ['Alto`s Adventure', 'Angry Birds 2', 'Anno 2205', 'Assassin`s Creed Chronicles'];
 
 function t7() {
-
+    a7_res = [];
+    a7_res = a7.map(elem => {
+        return elem.toLowerCase();
+    });
+    return a7_res;
 }
 
 document.querySelector('.b-7').onclick = () => {
@@ -148,7 +152,13 @@ document.querySelector('.b-7').onclick = () => {
 let a8 = [3, 14, 15, 92, 7, 32, 59];
 
 function t8() {
-
+    a8_res = [];
+    for (let i = 0; i < a8.length; i++) {
+        if (a8[i] % 2 == 0) {
+            a8_res.push(i);
+        }
+    }
+    return a8_res
 }
 
 document.querySelector('.b-8').onclick = () => {
@@ -163,7 +173,10 @@ document.querySelector('.b-8').onclick = () => {
 let a9 = ['Quantum Break', 'Gears of War 4', 'Mass Effect: Andromeda', 'Far Cry Primal'];
 
 function t9() {
-
+    a9.forEach((elem, index) => {
+        a9[index] = elem.toLowerCase()
+    });
+    return a9;
 }
 
 document.querySelector('.b-9').onclick = () => {
@@ -178,7 +191,12 @@ document.querySelector('.b-9').onclick = () => {
 let a10 = [2, 13, 14, -7, 9, 5, 0, -2, 14];
 
 function t10() {
-
+    a10.forEach((elem, index) => {
+        if (a10[index] < 0) {
+            a10[index] = 0;
+        }
+    });
+    return a10;
 
 }
 
@@ -192,8 +210,10 @@ document.querySelector('.b-10').onclick = () => {
 let a11 = [2, 13, 14, -7, 9, 5, 0, -2, 14];
 
 function t11() {
-
-
+    a11_res = a11.filter((elem, index) => {
+        return index % 2 == 0;
+    });
+    return a11_res;
 }
 
 document.querySelector('.b-11').onclick = () => {
@@ -264,21 +284,21 @@ document.querySelector('.b-14').onclick = () => {
 */
 
 let a15 = [{
-        "name": "ivanov",
-        "pnum": 'tr7862'
-    },
-    {
-        "name": "petrov",
-        "pnum": ''
-    },
-    {
-        "name": "sedanov",
-        "pnum": 'im7961'
-    },
-    {
-        "name": "dou",
-        "pnum": 'tr786259'
-    },
+    "name": "ivanov",
+    "pnum": 'tr7862'
+},
+{
+    "name": "petrov",
+    "pnum": ''
+},
+{
+    "name": "sedanov",
+    "pnum": 'im7961'
+},
+{
+    "name": "dou",
+    "pnum": 'tr786259'
+},
 ];
 
 
