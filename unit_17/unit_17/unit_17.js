@@ -227,7 +227,7 @@ let a12 = [2, 13, 14, -7, 9, 5, 0, -2, 14];
 // a12 = 8; // на этой переменной можно проверить работает или нет ваша функция.
 
 function t12() {
-
+    return Array.isArray(a12);
 
 }
 
@@ -243,7 +243,7 @@ let a13_num = 9;
 
 
 function t13() {
-
+    return a13.includes(a13_num);
 
 }
 
@@ -259,8 +259,9 @@ let a14_sym = 'e';
 
 
 function t14() {
-
-
+    let b = a14.includes(a14_sym.toUpperCase());
+    let a = a14.includes(a14_sym.toLowerCase());
+    return a || b;
 }
 
 document.querySelector('.b-14').onclick = () => {
@@ -303,8 +304,12 @@ let a15 = [{
 
 
 function t15() {
-
-
+    a15_res = a15.filter((elem) => {
+        if (elem['pnum'] != '' && elem['pnum'].length == 6) {
+            return a15_res
+        }
+    });
+    return a15_res
 }
 
 document.querySelector('.b-15').onclick = () => {
