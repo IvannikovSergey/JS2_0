@@ -1,11 +1,10 @@
-
 // Task 1 ============================================
 /* Добавьте на блок .div-1 событие клик и по клику запуск функции t1. Функция должна возвращать и выводить на экран содержимое блока (только текст). Вывод осуществляется в out-1.  */
 
 function t1() {
-  let out = document.querySelector('.div-1').textContent;
-  document.querySelector('.out-1').textContent = out;
-  return out;
+    let out = document.querySelector('.div-1').textContent;
+    document.querySelector('.out-1').textContent = out;
+    return out;
 }
 
 document.querySelector('.div-1').onclick = t1; // ваше событие здесь!!!
@@ -14,7 +13,7 @@ document.querySelector('.div-1').onclick = t1; // ваше событие зде
 /*  Добавьте на блок .div-2 событие клик и по клику запуск функции t2. Функция должна возвращать true или false в зависимости от того, нажата ли клавиша alt или нет в момент клика. Также, выводите на экран результат. Вывод осуществляется в out-2. */
 
 function t2(e) {
-  return document.querySelector('.out-2').innerHTML = e.altKey;
+    return document.querySelector('.out-2').innerHTML = e.altKey;
 }
 
 document.querySelector('.div-2').onclick = t2; // ваше событие здесь!!!
@@ -26,9 +25,9 @@ document.querySelector('.div-2').onclick = t2; // ваше событие зде
 let w3 = 75;
 
 function t3() {
-  document.querySelector('.div-3').style.width = w3 + 'px';
-  w3 += 5;
-  document.querySelector('.out-3').textContent = w3;
+    document.querySelector('.div-3').style.width = w3 + 'px';
+    w3 += 5;
+    document.querySelector('.out-3').textContent = w3;
 }
 
 document.querySelector('.div-3').onclick = t3; // ваше событие здесь!!!
@@ -38,9 +37,9 @@ document.querySelector('.div-3').onclick = t3; // ваше событие зде
 /*  Добавьте на блок .div-4 событие двойной клик и по двойному клику запуск функции t4. Функция должна возвращать и выводить на экран содержимое блока (только текст). Вывод осуществляется в out-4. */
 
 function t4() {
-  let out = document.querySelector('.div-4').textContent;
-  document.querySelector('.out-4').innerHTML = out;
-  return out;
+    let out = document.querySelector('.div-4').textContent;
+    document.querySelector('.out-4').innerHTML = out;
+    return out;
 }
 
 document.querySelector('.div-4').ondblclick = t4; // ваше событие здесь!!!
@@ -49,7 +48,7 @@ document.querySelector('.div-4').ondblclick = t4; // ваше событие з�
 /*  Дан блок .div-5.active. Добавьте на него событие двойной клик, по которому удалется класс active если он есть и добавляется если такого класса нет. */
 
 function t5() {
-  document.querySelector('.div-5').classList.remove('active');
+    document.querySelector('.div-5').classList.toggle('active');
 }
 
 document.querySelector('.div-5').ondblclick = t5; // ваше событие здесь!!!
@@ -58,39 +57,44 @@ document.querySelector('.div-5').ondblclick = t5; // ваше событие з�
 /*  Дан блок .div-6 и список .ul-6. При двойном клике на блоке скрывайте .ul-6 еcли он показан и показывайте если скрыт. Скрытие и показ делайте через добавление - удаление класса .hide */
 
 function t6() {
-
+    document.querySelector('.ul-6').classList.toggle('hide');
 }
-
-// ваше событие здесь!!!
+document.querySelector('.div-6').ondblclick = t6; // ваше событие здесь!!!
 
 
 // Task 7 ============================================
 /*  Дан блок .div-7. При клике правой кнопкой мыши на блоке добавляйте ему класс .active. При повторном клике - удаляйте. */
 
 function t7() {
-
+    document.querySelector('.div-7').classList.toggle('active');
 }
 
-// ваше событие здесь!!!
+document.querySelector('.div-7').oncontextmenu = t7; // ваше событие здесь!!!
 
 // Task 8 ============================================
 /*  Дано checkbox .ch-8. Повесьте на него событие onchange при котором на документе отключается клик правой кнопкой мыши если checkbox выбран и отключает если не выбран. */
 
 function t8() {
-
+    if (document.querySelector('.ch-8').checked) {
+        document.oncontextmenu = (e) => {
+            e.preventDefault();
+        }
+    } else {
+        document.oncontextmenu = null;
+    }
 }
 
-// ваше событие здесь!!!
+document.querySelector('.ch-8').onchange = t8; // ваше событие здесь!!!
 
 
 // Task 9 ============================================
 /*  Дан блок .div-9. Внутри блока - изображение 1.png. При клике правой кнопкой мыши  - меняйте изображение на 2.png. Надеюсь вы догадаетесь изменить только src изображения? */
 
 function t9() {
-
+    document.querySelector('.div-9 img').src = 'img/2.png';
 }
 
-// ваше событие здесь!!!
+document.querySelector('.div-9').oncontextmenu = t9; // ваше событие здесь!!!
 
 
 // Task 10 ============================================
@@ -166,6 +170,7 @@ function t16() {
 function t17On() {
 
 }
+
 function t17Off() {
 
 }
