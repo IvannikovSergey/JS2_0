@@ -28,7 +28,7 @@ let w3 = 75;
 function t3() {
   document.querySelector('.div-3').style.width = w3 + 'px';
   w3 += 5;
-  return document.querySelector('.out-3').textContent = w3;
+  document.querySelector('.out-3').textContent = w3;
 }
 
 document.querySelector('.div-3').onclick = t3; // ваше событие здесь!!!
@@ -38,19 +38,21 @@ document.querySelector('.div-3').onclick = t3; // ваше событие зде
 /*  Добавьте на блок .div-4 событие двойной клик и по двойному клику запуск функции t4. Функция должна возвращать и выводить на экран содержимое блока (только текст). Вывод осуществляется в out-4. */
 
 function t4() {
-
+  let out = document.querySelector('.div-4').textContent;
+  document.querySelector('.out-4').innerHTML = out;
+  return out;
 }
 
-// ваше событие здесь!!!
+document.querySelector('.div-4').ondblclick = t4; // ваше событие здесь!!!
 
 // Task 5 ============================================
 /*  Дан блок .div-5.active. Добавьте на него событие двойной клик, по которому удалется класс active если он есть и добавляется если такого класса нет. */
 
 function t5() {
-
+  document.querySelector('.div-5').classList.remove('active');
 }
 
-// ваше событие здесь!!!
+document.querySelector('.div-5').ondblclick = t5; // ваше событие здесь!!!
 
 // Task 6 ============================================
 /*  Дан блок .div-6 и список .ul-6. При двойном клике на блоке скрывайте .ul-6 еcли он показан и показывайте если скрыт. Скрытие и показ делайте через добавление - удаление класса .hide */
