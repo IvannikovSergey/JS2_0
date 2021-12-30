@@ -101,26 +101,30 @@ document.querySelector('.div-9').oncontextmenu = t9; // ваше событие 
 /*  Дан блок .div-10. Внутри блока - изображение 1.png. При наведении мыши (mouseenter)  - меняйте изображение на 2.png. */
 
 function t10() {
-
+    document.querySelector('.div-10 img').src = 'img/2.png';
 }
 
-// ваше событие здесь!!!
+document.querySelector('.div-10').onmouseenter = t10; // ваше событие здесь!!!
 
 // Task 11 ============================================
 /*  Дан блок .div-11. Внутри блока - изображение 1.png. При наведении мыши (mouseenter)  - меняйте изображение на 2.png. При уведении мыши - mouseleave - возвращайте исходное изображение. */
 
 function t11() {
-
+    document.querySelector('.div-11 img').src = 'img/2.png';
+}
+function t11_1() {
+    document.querySelector('.div-11 img').src = 'img/1.png';
 }
 
-// ваше событие здесь!!!
+document.querySelector('.div-11').onmouseenter = t11;
+document.querySelector('.div-11').onmouseleave = t11_1; // ваше событие здесь!!!
 
 // Task 12 ============================================
 /*  Дан блок .div-12. Добавьте на него событие mousedown - при нажатии кнопки мыши - добавляйте ему класс active. */
 
-// () => {
-
-// }
+document.querySelector('.div-12').onmousedown = () => {
+    document.querySelector('.div-12').classList.add('active');
+}
 
 // ваше событие здесь!!!
 
@@ -128,13 +132,13 @@ function t11() {
 // Task 13 ============================================
 /*  Дан блок .div-13. Добавьте на него событие mousedown - при нажатии кнопки мыши - добавляйте ему класс active. Добавьте ему событие mouseup - при отпускании мыши - удаляйте класс active. */
 
-// () =>  {
-
-// }
-
-// () =>  {
-
-// }
+let a = document.querySelector('.div-13');
+a.onmousedown = () => {
+    a.classList.add('active');
+}
+a.onmouseup = () => {
+    a.classList.remove('active');
+}
 // ваше событие здесь!!!
 
 
@@ -142,27 +146,29 @@ function t11() {
 /*  Дан блок .div-14. При нажатии кнопки b-14 добавляйте к нему событие onclick - которое, при клике добавляем блоку div-14 класс active. */
 
 function t14() {
-
+    document.querySelector('.div-14').classList.add('active');
 }
-// document.querySelector('t-14').onclick = t14();
+document.querySelector('.b-14').onclick = t14;
 
 
 // Task 15 ============================================
 /*  Дан блок .div-15. Добавьте на него событие move. При каждом движении мыши увеличивайте число внутри на 1. */
 
 function t15() {
-
+    let a = document.querySelector('.div-15').value;
+    a += 1;
+    console.log(a);
 }
-// ваше событие здесь!!!
+document.querySelector('.div-15').onmousemove = t15; // ваше событие здесь!!!
 
 
 // Task 16 ============================================
 /*  Дан блок .div-16. Добавьте на него событие move. При каждом движении мыши увеличивайте ширину блока на 1px. */
 
 function t16() {
-
+    // document.querySelector('.div-16').
 }
-// ваше событие здесь!!!
+document.querySelector('.div-16').onmousemove = t16; // ваше событие здесь!!!
 
 // Task 17 ============================================
 /*  Дано две кнопки - b-17_on и b-17_off. Напишите фукнции t17On и t17Off которые включают и отключают событие move в задании 16. */
