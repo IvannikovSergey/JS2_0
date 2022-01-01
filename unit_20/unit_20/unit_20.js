@@ -82,12 +82,13 @@ document.querySelector('.i-6').onkeypress = t6;
 const a7 = ['a', 'z', 'x', 'w', 'y', 't'];
 
 function t7(event) {
-    for (let i of a7) {
-        document.querySelector('.out-7').innerHTML = a7[i];
-    }
-    // document.querySelector('.out-7').innerHTML = a7[event.key];
+    let i = random(0, a7.length - 1);
+    document.querySelector('.out-7').innerHTML = a7[i];
 }
 
+function random(min, max) {
+    return Math.round(min + Math.random() * (max - min));
+}
 document.querySelector('.i-7').onkeydown = t7;
 
 // Task 8 ============================================
@@ -98,11 +99,16 @@ const a8 = {
     o: 0,
     l: 7
 }
+let out = '';
 
 function t8(event) {
-    // 1. Получаем из event введенный символ
-    // 2. Проверяем наличие такого ключа в a8 - уже делали это раньше!!!!
-    // 3. Если есть дописываем в out-8 символ из массива a8. Если нет - введенный символ.
+    let a = event.key; // 1. Получаем из event введенный символ
+    if (a8[a] != undefined) {
+        out += a8[a]; // 2. Проверяем наличие такого ключа в a8 - уже делали это раньше!!!!
+    } else {
+        out += a; // 3. Если есть дописываем в out-8 символ из массива a8. Если нет - введенный символ.
+    }
+    document.querySelector('.out-8').innerHTML = out;
 }
 
 document.querySelector('.i-8').onkeydown = t8;
@@ -110,9 +116,14 @@ document.querySelector('.i-8').onkeydown = t8;
 
 // Task 9 ============================================
 /* Дан input .i-9. Напишите функцию t9, выводит в .out-9 количество (число) нажатых клавиш стрелка вниз. */
+let sum = 0;
 
 function t9(event) {
     console.log(event);
+    if (event.keyCode == 40) {
+        sum++;
+    }
+    document.querySelector('.out-9').innerHTML = sum;
 }
 
 document.querySelector('.i-9').onkeydown = t9;
@@ -125,8 +136,15 @@ let h = 75;
 let w = 75;
 
 function t10(event) {
+    if (event.keyCode == 37 || event.keyCode == 39) {
+        w++;
+    }
+    if (event.keyCode == 38 || event.keyCode == 40) {
+        h++;
+    }
+    document.querySelector('.div-10').style.width = w + 'px';
+    document.querySelector('.div-10').style.height = h + 'px';
     // увеличиваем  h, w, потом присваиваем как свойства...
-
 }
 
 document.querySelector('.i-10').onkeydown = t10;
@@ -139,7 +157,7 @@ document.querySelector('.i-10').onkeydown = t10;
 4. Самостоятельно добавьте все цифры и второй ряд клавиш от a до l
 5. Самостоятельно добавьте клавишу alt, enter.
 */
-
+// const keys = keyboard;
 function t11(event) {
     console.log(event.key);
 
