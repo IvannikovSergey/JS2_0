@@ -69,8 +69,8 @@ function t6(event) {
     } else {
         str += event.key;
     }
-    document.querySelector('.i-6').value = str; // return false;
-    return false;
+    document.querySelector('.i-6').value = str;
+    return false; // return false;
 }
 
 document.querySelector('.i-6').onkeypress = t6;
@@ -157,10 +157,24 @@ document.querySelector('.i-10').onkeydown = t10;
 4. Самостоятельно добавьте все цифры и второй ряд клавиш от a до l
 5. Самостоятельно добавьте клавишу alt, enter.
 */
-// const keys = keyboard;
+const keyboard = document.querySelectorAll('.keyboard');
+
 function t11(event) {
     console.log(event.key);
+    let key = event.key;
 
+    if (key === ' ') {
+        key = 'space';
+    }
+    if (key === 'Control') {
+        key = 'ctrl';
+    }
+    for (let i = 0; i < keyboard.length; i++) {
+        keyboard[i].classList.remove('active');
+    }
+
+    let button = document.querySelector(`.keyboard[data="${key}"]`);
+    button.classList.add('active');
 }
 
 document.querySelector('.i-11').onkeydown = t11;
