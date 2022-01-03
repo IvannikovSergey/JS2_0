@@ -1,49 +1,58 @@
-
 // Task 1 ============================================
 /* Создайте блок div-1. Добавьте на него событие touchstart. Выведите в out-1 слово  touch если событие сработает. */
 
-function t1() {
+function t1(event) {
+    document.querySelector('.out-1').innerHTML = 'touch';
+    console.log(event);
 }
 
-// ваше событие здесь!!!
+document.querySelector('.div-1').addEventListener('touchstart', t1); // ваше событие здесь!!!
 
 // Task 2 ============================================
 /* Создайте блок div-2. Добавьте на него событие touchstart. Выведите в out-2 число срабатываний события. */
+let total = 0;
 
-function t2() {
-
+function t2(event) {
+    total++;
+    document.querySelector('.out-2').innerHTML = total;
 }
 
-// ваше событие здесь!!!
+document.querySelector('.div-2').addEventListener('touchstart', t2); // ваше событие здесь!!!
 
 
 // Task 3 ============================================
 /*  Создайте блок div-3_1 и div-3_2. Добавьте на них событие touchstart. Выведите в out-3 номер блока 1 или 2 на котором сработало событие. */
 
-function t3() {
-
+function t3(event) {
+    document.querySelector('.out-3').innerHTML = event.target.innerHTML;
 }
 
-// ваше событие здесь!!!
+document.querySelector('.div-3_1').addEventListener('touchstart', t3); // ваше событие здесь!!!
+document.querySelector('.div-3_2').addEventListener('touchstart', t3);
 
 
 // Task 4 ============================================
 /*  Создайте блок div-4. И кнопку b-4. При нажатии кнопки - добавляйте событие ontouchstart на блок div-4. При событии происходит вывод текста touch в out-4.  */
+let div4 = document.querySelector('.div-4');
 
 function t4() {
-
+    div4.addEventListener('touchstart', t4_1);
 }
 
-// ваше событие здесь!!!
+function t4_1() {
+    document.querySelector('.out-4').innerHTML += 'touch';
+}
+
+document.querySelector('.b-4').onclick = t4; // ваше событие здесь!!!
 
 // Task 5 ============================================
 /*  Дана кнопка b-5. При ее нажатии очищайте событие ontouchstart на блоке div-4. */
 
 function t5() {
-
+    div4.removeEventListener('touchstart', t4_1);
 }
 
-// ваше событие здесь!!!
+document.querySelector('.b-5').onclick = t5; // ваше событие здесь!!!
 
 // Task 6 ============================================
 /*  Добавьте событие ontouchend на div-4. При его срабатывании выведите в out-6 слово touchend. */
