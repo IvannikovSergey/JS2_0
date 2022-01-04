@@ -1,9 +1,8 @@
 // Task 1 ============================================
 /* Создайте блок div-1. Добавьте на него событие touchstart. Выведите в out-1 слово  touch если событие сработает. */
 
-function t1(event) {
+function t1() {
     document.querySelector('.out-1').innerHTML = 'touch';
-    console.log(event);
 }
 
 document.querySelector('.div-1').addEventListener('touchstart', t1); // ваше событие здесь!!!
@@ -12,7 +11,7 @@ document.querySelector('.div-1').addEventListener('touchstart', t1); // ваше
 /* Создайте блок div-2. Добавьте на него событие touchstart. Выведите в out-2 число срабатываний события. */
 let total = 0;
 
-function t2(event) {
+function t2() {
     total++;
     document.querySelector('.out-2').innerHTML = total;
 }
@@ -138,12 +137,36 @@ const prev = document.querySelectorAll('.prev');
 prev.onclick = prevFunction;
 
 function nextFunction() {
-
+    if (count + 1 < images.length) {
+        count++;
+    }
+    for (let i = 0; i < images.length; i++) {
+        images[i].classList.remove('active-img');
+    }
+    images[count].classList.add('active-img');
+    document.querySelector('.img-12-max').src = images[count].src;
 }
 
 function prevFunction() {
-
+    if (count != 0) {
+        count--;
+    }
+    for (let i = 0; i < images.length; i++) {
+        images[i].classList.remove('active-img');
+    }
+    images[count].classList.add('active-img');
+    document.querySelector('.img-12-max').src = images[count].src;
 }
 
+function resetFunction() {
+    for (let i = 0; i < images.length; i++) {
+        images[i].classList.remove('active-img');
+    }
+    images[0].classList.add('active-img');
+    document.querySelector('.img-12-max').src = images[0].src;
+    count = 0;
+}
 
-// ваше событие здесь!!!
+document.querySelector('.next').addEventListener('touchstart', nextFunction); // ваше событие здесь!!!
+document.querySelector('.prev').addEventListener('touchstart', prevFunction);
+document.querySelector('.reset').addEventListener('touchstart', resetFunction);
