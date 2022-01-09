@@ -1,11 +1,34 @@
-
 // Task 1 ============================================
 /* Отправьте GET запрос на сайт http://getpost.itgid.info/index2.php. В качестве action укажите 1. Выведите в out-1 результат. Запускаться функция должна по нажатию b-1. */
-
-function t1() {
+const url = 'http://getpost.itgid.info/index2.php';
+const key = 'auth=7859d9d42a8834141d529577207c9596';
+// xhr.send(name);
+// name=value&anothername=othervalue&so=on
+function setAttr(url, key, num, par1 = null, par2 = null) {
+    let out = `${url}?${key}&action=${num}&${par1}&${par2}`;
+    console.log(out);
+    return out;
 }
 
-// ваше событие здесь!!!
+function t1() {
+    let action = 'action=1';
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            myFunction(this.responseText);
+        }
+    }
+    xhr.open('GET', setAttr(url, key, 2, 'name=Sergey'), true);
+
+    xhr.send();
+
+    function myFunction(data) {
+
+        console.log(data);
+    }
+}
+
+document.querySelector('.b-1').onclick = t1; // ваше событие здесь!!!
 
 // Task 2 ============================================
 /* Отправьте GET запрос на сайт http://getpost.itgid.info/index2.php. В качестве action укажите 2. Добавьте параметр name с вашим именем на латинице. Если все сделано верно, сервер пришлет строку hello ваше имя. Выведите в out-2 результат. Запускаться функция должна по нажатию b-2. */
@@ -163,4 +186,3 @@ function t18() {
 }
 
 // ваше событие здесь!!!
-
