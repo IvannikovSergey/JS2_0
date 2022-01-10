@@ -1,5 +1,6 @@
 // Task 1 ============================================
 /* Отправьте GET запрос на сайт http://getpost.itgid.info/index2.php. В качестве action укажите 1. Выведите в out-1 результат. Запускаться функция должна по нажатию b-1. */
+
 const URL = 'http://getpost.itgid.info/index2.php';
 const KEY = '7859d9d42a8834141d529577207c9596';
 
@@ -12,19 +13,15 @@ function queryString(obj) {
     return out;
 }
 
-function XHR(param, callback) {
+function XHR(param, out) {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            callback(this.responseText);
+            document.querySelector(out).innerHTML = this.responseText;
         }
     }
     xhr.open('GET', `${URL}?auth=${KEY}&${queryString(param)}`, true);
     xhr.send();
-}
-function toOut(out, data) {
-    // console.log(data);
-    return document.querySelector(out).innerHTML = 100;
 }
 
 function t1() {
@@ -32,19 +29,7 @@ function t1() {
         'action': 1
     };
 
-    XHR(param, toOut('.out-1'));
-    // let xhr = new XMLHttpRequest();
-    // xhr.onreadystatechange = function () {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //         myFunction(this.responseText);
-    //     }
-    // }
-    // xhr.open('GET', `${URL}?auth=${KEY}&${queryString(param)}`, true);
-    // xhr.send();
-
-    // function myFunction(data) {
-    //     document.querySelector('.out-1').innerHTML = data;
-    // }
+    XHR(param, '.out-1');
 }
 
 document.querySelector('.b-1').onclick = t1; // ваше событие здесь!!!
@@ -57,18 +42,7 @@ function t2() {
         'action': 2,
         'name': 'Сергей'
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
-        }
-    }
-    xhr.open('GET', `${URL}?auth=${KEY}&${queryString(param)}`, true);
-    xhr.send();
-
-    function myFunction(data) {
-        document.querySelector('.out-2').innerHTML = data;
-    }
+    XHR(param, '.out-2');
 }
 
 document.querySelector('.b-2').onclick = t2; // ваше событие здесь!!!
@@ -83,18 +57,7 @@ function t3() {
         'num1': 5,
         'num2': 10
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
-        }
-    }
-    xhr.open('GET', `${URL}?auth=${KEY}&${queryString(param)}`, true);
-    xhr.send();
-
-    function myFunction(data) {
-        document.querySelector('.out-3').innerHTML = data;
-    }
+    XHR(param, '.out-3');
 }
 
 document.querySelector('.b-3').onclick = t3; // ваше событие здесь!!!
@@ -109,18 +72,7 @@ function t4() {
         'num1': 5,
         'num2': 10
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
-        }
-    }
-    xhr.open('GET', `${URL}?auth=${KEY}&${queryString(param)}`, true);
-    xhr.send();
-
-    function myFunction(data) {
-        document.querySelector('.out-4').innerHTML = data;
-    }
+    XHR(param, '.out-4');
 }
 
 document.querySelector('.b-4').onclick = t4; // ваше событие здесь!!!
@@ -132,17 +84,7 @@ function t5() {
     let param = {
         'action': 5
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
-        }
-    }
-    xhr.open('GET', `${URL}?auth=${KEY}&${queryString(param)}`, true);
-    xhr.send();
-    function myFunction(data) {
-        document.querySelector('.out-5').innerHTML = data;
-    }
+    XHR(param, '.out-5');
 }
 
 document.querySelector('.b-5').onclick = t5; // ваше событие здесь!!!
@@ -156,17 +98,7 @@ function t6() {
         'num1': 5,
         'num2': 10
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
-        }
-    }
-    xhr.open('GET', `${URL}?auth=${KEY}&${queryString(param)}`, true);
-    xhr.send();
-    function myFunction(data) {
-        document.querySelector('.out-6').innerHTML = data;
-    }
+    XHR(param, '.out-6');
 }
 
 document.querySelector('.b-6').onclick = t6; // ваше событие здесь!!!
@@ -179,17 +111,7 @@ function t7() {
     let param = {
         'action': 7
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
-        }
-    }
-    xhr.open('GET', `${URL}?auth=${KEY}&${queryString(param)}`, true);
-    xhr.send();
-    function myFunction(data) {
-        document.querySelector('.out-7').innerHTML = data;
-    }
+    XHR(param, '.out-7');
 }
 
 document.querySelector('.b-7').onclick = t7; // ваше событие здесь!!!
@@ -202,17 +124,7 @@ function t8() {
         'action': 8,
         'year': 1985
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
-        }
-    }
-    xhr.open('GET', `${URL}?auth=${KEY}&${queryString(param)}`, true);
-    xhr.send();
-    function myFunction(data) {
-        document.querySelector('.out-8').innerHTML = data;
-    }
+    XHR(param, '.out-8');
 }
 
 document.querySelector('.b-8').onclick = t8; // ваше событие здесь!!!
@@ -228,17 +140,7 @@ function t9() {
         'd': 1,
         'y': 1
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
-        }
-    }
-    xhr.open('GET', `${URL}?auth=${KEY}&${queryString(param)}`, true);
-    xhr.send();
-    function myFunction(data) {
-        document.querySelector('.out-9').innerHTML = data;
-    }
+    XHR(param, '.out-9');
 }
 
 document.querySelector('.b-9').onclick = t9; // ваше событие здесь!!!
@@ -252,20 +154,17 @@ document.querySelector('.b-9').onclick = t9; // ваше событие здес
 function t10() {
     let param = {
         'action': 1
-    }
+    };
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
+            document.querySelector('.out-10').innerHTML = this.responseText;
         }
     }
     xhr.open('POST', URL, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send('auth=' + KEY + queryString(param));
 
-    function myFunction(data) {
-        document.querySelector('.out-10').innerHTML = data;
-    }
 }
 
 document.querySelector('.b-10').onclick = t10;
@@ -277,20 +176,17 @@ function t11() {
     let param = {
         'action': 2,
         'name': 'Сергей'
-    }
+    };
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
+            document.querySelector('.out-11').innerHTML = this.responseText;
         }
     }
     xhr.open('POST', URL, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send('auth=' + KEY + queryString(param));
 
-    function myFunction(data) {
-        document.querySelector('.out-11').innerHTML = data;
-    }
 }
 
 document.querySelector('.b-11').onclick = t11; // ваше событие здесь!!!
@@ -303,20 +199,17 @@ function t12() {
         'action': 3,
         'num1': 5,
         'num2': 10
-    }
+    };
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
+            document.querySelector('.out-12').innerHTML = this.responseText;
         }
     }
     xhr.open('POST', URL, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send('auth=' + KEY + queryString(param));
 
-    function myFunction(data) {
-        document.querySelector('.out-12').innerHTML = data;
-    }
 }
 
 document.querySelector('.b-12').onclick = t12; // ваше событие здесь!!!
@@ -329,20 +222,17 @@ function t13() {
         'action': 4,
         'num1': 5,
         'num2': 10
-    }
+    };
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
+            document.querySelector('.out-13').innerHTML = this.responseText;
         }
     }
     xhr.open('POST', URL, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send('auth=' + KEY + queryString(param));
 
-    function myFunction(data) {
-        document.querySelector('.out-13').innerHTML = data;
-    }
 }
 
 document.querySelector('.b-13').onclick = t13; // ваше событие здесь!!!
@@ -353,20 +243,17 @@ document.querySelector('.b-13').onclick = t13; // ваше событие зде
 function t14() {
     let param = {
         'action': 5
-    }
+    };
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
+            document.querySelector('.out-14').innerHTML = this.responseText;
         }
     }
     xhr.open('POST', URL, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send('auth=' + KEY + queryString(param));
 
-    function myFunction(data) {
-        document.querySelector('.out-14').innerHTML = data;
-    }
 }
 
 document.querySelector('.b-14').onclick = t14; // ваше событие здесь!!!
@@ -379,20 +266,17 @@ function t15() {
         'action': 6,
         'num1': 5,
         'num2': 10
-    }
+    };
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
+            document.querySelector('.out-15').innerHTML = this.responseText;
         }
     }
     xhr.open('POST', URL, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send('auth=' + KEY + queryString(param));
 
-    function myFunction(data) {
-        document.querySelector('.out-15').innerHTML = data;
-    }
 }
 
 document.querySelector('.b-15').onclick = t15; // ваше событие здесь!!!
@@ -403,20 +287,17 @@ document.querySelector('.b-15').onclick = t15; // ваше событие зде
 function t16() {
     let param = {
         'action': 7
-    }
+    };
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
+            document.querySelector('.out-16').innerHTML = this.responseText;
         }
     }
     xhr.open('POST', URL, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send('auth=' + KEY + queryString(param));
 
-    function myFunction(data) {
-        document.querySelector('.out-16').innerHTML = data;
-    }
 }
 
 document.querySelector('.b-16').onclick = t16; // ваше событие здесь!!!
@@ -428,23 +309,20 @@ function t17() {
     let param = {
         'action': 8,
         'year': 1985
-    }
+    };
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
+            document.querySelector('.out-17').innerHTML = this.responseText;
         }
     }
     xhr.open('POST', URL, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send('auth=' + KEY + queryString(param));
 
-    function myFunction(data) {
-        document.querySelector('.out-17').innerHTML = data;
-    }
 }
 
-document.querySelector('.b-17').onclick = t17;// ваше событие здесь!!!
+document.querySelector('.b-17').onclick = t17; // ваше событие здесь!!!
 
 // Task 18 ============================================
 /*  Отправьте POST запрос на сайт http://getpost.itgid.info/index2.php. В качестве action укажите 9. В качестве параметра по очереди укажите m = 1, d=1, y=1. Если все сделано верно, сервер возвратит дату или месяц или год. Не забывайте указывать параметр auth (ключ в чате). Выведите в out-18 результат. Запускаться функция должна по нажатию b-18. */
@@ -455,20 +333,17 @@ function t18() {
         'm': 1,
         'd': 1,
         'y': 1
-    }
+    };
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
+            document.querySelector('.out-18').innerHTML = this.responseText;
         }
     }
     xhr.open('POST', URL, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send('auth=' + KEY + queryString(param));
 
-    function myFunction(data) {
-        document.querySelector('.out-18').innerHTML = data;
-    }
 }
 
 document.querySelector('.b-18').onclick = t18; // ваше событие здесь!!!
