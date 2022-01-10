@@ -12,22 +12,39 @@ function queryString(obj) {
     return out;
 }
 
-function t1() {
-    let param = {
-        'action': 1
-    };
+function XHR(param, callback) {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            myFunction(this.responseText);
+            callback(this.responseText);
         }
     }
     xhr.open('GET', `${URL}?auth=${KEY}&${queryString(param)}`, true);
     xhr.send();
+}
+function toOut(out, data) {
+    // console.log(data);
+    return document.querySelector(out).innerHTML = 100;
+}
 
-    function myFunction(data) {
-        document.querySelector('.out-1').innerHTML = data;
-    }
+function t1() {
+    let param = {
+        'action': 1
+    };
+
+    XHR(param, toOut('.out-1'));
+    // let xhr = new XMLHttpRequest();
+    // xhr.onreadystatechange = function () {
+    //     if (this.readyState == 4 && this.status == 200) {
+    //         myFunction(this.responseText);
+    //     }
+    // }
+    // xhr.open('GET', `${URL}?auth=${KEY}&${queryString(param)}`, true);
+    // xhr.send();
+
+    // function myFunction(data) {
+    //     document.querySelector('.out-1').innerHTML = data;
+    // }
 }
 
 document.querySelector('.b-1').onclick = t1; // ваше событие здесь!!!
