@@ -13,7 +13,7 @@ function queryString(obj) {
     return out;
 }
 
-function XHR(param, out) {
+function xHRGet(param, out) {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -24,12 +24,24 @@ function XHR(param, out) {
     xhr.send();
 }
 
+function xHRPost(param, out) {
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.querySelector(out).innerHTML = this.responseText;
+        }
+    }
+    xhr.open('POST', URL, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send('auth=' + KEY + queryString(param));
+}
+
 function t1() {
     let param = {
         'action': 1
     };
 
-    XHR(param, '.out-1');
+    xHRGet(param, '.out-1');
 }
 
 document.querySelector('.b-1').onclick = t1; // ваше событие здесь!!!
@@ -42,7 +54,7 @@ function t2() {
         'action': 2,
         'name': 'Сергей'
     };
-    XHR(param, '.out-2');
+    xHRGet(param, '.out-2');
 }
 
 document.querySelector('.b-2').onclick = t2; // ваше событие здесь!!!
@@ -57,7 +69,7 @@ function t3() {
         'num1': 5,
         'num2': 10
     };
-    XHR(param, '.out-3');
+    xHRGet(param, '.out-3');
 }
 
 document.querySelector('.b-3').onclick = t3; // ваше событие здесь!!!
@@ -72,7 +84,7 @@ function t4() {
         'num1': 5,
         'num2': 10
     };
-    XHR(param, '.out-4');
+    xHRGet(param, '.out-4');
 }
 
 document.querySelector('.b-4').onclick = t4; // ваше событие здесь!!!
@@ -84,7 +96,7 @@ function t5() {
     let param = {
         'action': 5
     };
-    XHR(param, '.out-5');
+    xHRGet(param, '.out-5');
 }
 
 document.querySelector('.b-5').onclick = t5; // ваше событие здесь!!!
@@ -98,7 +110,7 @@ function t6() {
         'num1': 5,
         'num2': 10
     };
-    XHR(param, '.out-6');
+    xHRGet(param, '.out-6');
 }
 
 document.querySelector('.b-6').onclick = t6; // ваше событие здесь!!!
@@ -111,7 +123,7 @@ function t7() {
     let param = {
         'action': 7
     };
-    XHR(param, '.out-7');
+    xHRGet(param, '.out-7');
 }
 
 document.querySelector('.b-7').onclick = t7; // ваше событие здесь!!!
@@ -124,7 +136,7 @@ function t8() {
         'action': 8,
         'year': 1985
     };
-    XHR(param, '.out-8');
+    xHRGet(param, '.out-8');
 }
 
 document.querySelector('.b-8').onclick = t8; // ваше событие здесь!!!
@@ -140,7 +152,7 @@ function t9() {
         'd': 1,
         'y': 1
     };
-    XHR(param, '.out-9');
+    xHRGet(param, '.out-9');
 }
 
 document.querySelector('.b-9').onclick = t9; // ваше событие здесь!!!
@@ -155,16 +167,7 @@ function t10() {
     let param = {
         'action': 1
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.querySelector('.out-10').innerHTML = this.responseText;
-        }
-    }
-    xhr.open('POST', URL, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send('auth=' + KEY + queryString(param));
-
+    xHRPost(param, '.out-10');
 }
 
 document.querySelector('.b-10').onclick = t10;
@@ -177,16 +180,7 @@ function t11() {
         'action': 2,
         'name': 'Сергей'
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.querySelector('.out-11').innerHTML = this.responseText;
-        }
-    }
-    xhr.open('POST', URL, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send('auth=' + KEY + queryString(param));
-
+    xHRPost(param, '.out-11');
 }
 
 document.querySelector('.b-11').onclick = t11; // ваше событие здесь!!!
@@ -200,16 +194,7 @@ function t12() {
         'num1': 5,
         'num2': 10
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.querySelector('.out-12').innerHTML = this.responseText;
-        }
-    }
-    xhr.open('POST', URL, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send('auth=' + KEY + queryString(param));
-
+    xHRPost(param, '.out-12');
 }
 
 document.querySelector('.b-12').onclick = t12; // ваше событие здесь!!!
@@ -223,16 +208,7 @@ function t13() {
         'num1': 5,
         'num2': 10
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.querySelector('.out-13').innerHTML = this.responseText;
-        }
-    }
-    xhr.open('POST', URL, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send('auth=' + KEY + queryString(param));
-
+    xHRPost(param, '.out-13');
 }
 
 document.querySelector('.b-13').onclick = t13; // ваше событие здесь!!!
@@ -244,16 +220,7 @@ function t14() {
     let param = {
         'action': 5
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.querySelector('.out-14').innerHTML = this.responseText;
-        }
-    }
-    xhr.open('POST', URL, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send('auth=' + KEY + queryString(param));
-
+    xHRPost(param, '.out-14');
 }
 
 document.querySelector('.b-14').onclick = t14; // ваше событие здесь!!!
@@ -267,16 +234,7 @@ function t15() {
         'num1': 5,
         'num2': 10
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.querySelector('.out-15').innerHTML = this.responseText;
-        }
-    }
-    xhr.open('POST', URL, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send('auth=' + KEY + queryString(param));
-
+    xHRPost(param, '.out-15');
 }
 
 document.querySelector('.b-15').onclick = t15; // ваше событие здесь!!!
@@ -288,16 +246,7 @@ function t16() {
     let param = {
         'action': 7
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.querySelector('.out-16').innerHTML = this.responseText;
-        }
-    }
-    xhr.open('POST', URL, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send('auth=' + KEY + queryString(param));
-
+    xHRPost(param, '.out-16');
 }
 
 document.querySelector('.b-16').onclick = t16; // ваше событие здесь!!!
@@ -310,16 +259,7 @@ function t17() {
         'action': 8,
         'year': 1985
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.querySelector('.out-17').innerHTML = this.responseText;
-        }
-    }
-    xhr.open('POST', URL, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send('auth=' + KEY + queryString(param));
-
+    xHRPost(param, '.out-17');
 }
 
 document.querySelector('.b-17').onclick = t17; // ваше событие здесь!!!
@@ -334,16 +274,7 @@ function t18() {
         'd': 1,
         'y': 1
     };
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.querySelector('.out-18').innerHTML = this.responseText;
-        }
-    }
-    xhr.open('POST', URL, true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send('auth=' + KEY + queryString(param));
-
+    xHRPost(param, '.out-18');
 }
 
 document.querySelector('.b-18').onclick = t18; // ваше событие здесь!!!
