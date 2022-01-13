@@ -6,11 +6,75 @@
 <p>Два запроса объедините с помощью promiseAll. Результат выведите в out-1 результат. Запускаться функция
     должна по нажатию b-1.</p>
 */
+const URL = 'http://getpost.itgid.info/index2.php';
+const KEY = '7859d9d42a8834141d529577207c9596';
 
-function t1() {
+function queryString(obj) {
+    let out = '';
+    for (let k in obj) {
+        out += `&${k}=${obj[k]}`
+    }
+    console.log(out);
+    return out;
 }
 
-// ваше событие здесь!!!
+// function promiseGETReq(obj, out) {
+//     let a = new Promise((resolve, reject) => {
+//         fetch(`${URL}?auth=${KEY}${queryString(obj)}`)
+//             .then(data => {
+//                 resolve(data.text());
+//             })
+//     });
+//     a.then((data) => { document.querySelector(out).textContent = data; });
+// }
+
+// function promisePOSTReq(obj, out) {
+//     let b = new Promise((resolve) => {
+//         fetch(URL, {
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+//             body: `auth=${KEY}${queryString(obj)}`
+//         })
+//             .then(data => {
+//                 resolve(data.text());
+//             })
+//     });
+//     b.then((data) => { document.querySelector(out).textContent = data; });
+// }
+
+function promiseAll(obj, out) {
+
+    let a = new Promise((resolve, reject) => {
+        fetch(`${URL}?auth=${KEY}${queryString(obj)}`)
+            .then(data => {
+                resolve(data.text());
+            })
+    });
+
+    let b = new Promise((resolve) => {
+        fetch(URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `auth=${KEY}${queryString(obj)}`
+        })
+            .then(data => {
+                resolve(data.text());
+            })
+    });
+
+    Promise.all([a, b]).then(value => {
+        document.querySelector(out).textContent = value;
+    })
+}
+
+function t1() {
+    let param = {
+        'action': 1
+    }
+    promiseAll(param, '.out-1')
+}
+
+document.querySelector('.b-1').onclick = t1; // ваше событие здесь!!!
 
 // Task 2 ============================================
 /* 
@@ -82,10 +146,14 @@ POST запрос на сайт http://getpost.itgid.info/index2.php. В кач�
 */
 
 function t5() {
-
+    let param = {
+        'action': 2,
+        'name': 'Сергей'
+    }
+    promisePOSTReq(param, '.out-5')
 }
 
-// ваше событие здесь!!!
+document.querySelector('.b-5').onclick = t5; // ваше событие здесь!!!
 
 // Task 6 ============================================
 /* 
