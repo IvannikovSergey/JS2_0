@@ -1,4 +1,3 @@
-
 // Task 1 ============================================
 /* 
  <p>Отправьте GET запрос на сайт http://getpost.itgid.info/index2.php. В качестве action укажите 1. </p>
@@ -14,22 +13,52 @@ function queryString(obj) {
     for (let k in obj) {
         out += `&${k}=${obj[k]}`
     }
-    console.log(out);
     return out;
 }
 
-// function promiseGETReq(obj, out) {
-//     let a = new Promise((resolve, reject) => {
+function promiseGETReq(obj, out) {
+    let a = new Promise((resolve, reject) => {
+        fetch(`${URL}?auth=${KEY}${queryString(obj)}`)
+            .then(data => {
+                resolve(data);
+            })
+    })
+    a.then((data) => {
+        document.querySelector(out).textContent = data;
+        console.log(data);
+        return data;
+
+    });
+}
+
+function promisePOSTReq(obj, out) {
+    let b = new Promise((resolve) => {
+        fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `auth=${KEY}${queryString(obj)}`
+            })
+            .then(data => {
+                resolve(data.text());
+            })
+    });
+    b.then((data) => {
+        document.querySelector(out).textContent = data;
+    });
+}
+
+// function promiseAll(obj, out) {
+
+//     let a = new Promise((resolve, obj) => {
 //         fetch(`${URL}?auth=${KEY}${queryString(obj)}`)
 //             .then(data => {
 //                 resolve(data.text());
 //             })
 //     });
-//     a.then((data) => { document.querySelector(out).textContent = data; });
-// }
 
-// function promisePOSTReq(obj, out) {
-//     let b = new Promise((resolve) => {
+//     let b = new Promise((resolve,obj) => {
 //         fetch(URL, {
 //             method: 'POST',
 //             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -39,39 +68,34 @@ function queryString(obj) {
 //                 resolve(data.text());
 //             })
 //     });
-//     b.then((data) => { document.querySelector(out).textContent = data; });
+let arr = '';
+
+// function promiseAll([a, b]) {
+//     Promise.all([a, b]).then(value => {
+//         arr += value;
+//         console.log(arr);
+//         // document.querySelector('.out-1').textContent = value[0];
+//     })
 // }
 
-function promiseAll(obj, out) {
 
-    let a = new Promise((resolve, reject) => {
-        fetch(`${URL}?auth=${KEY}${queryString(obj)}`)
-            .then(data => {
-                resolve(data.text());
-            })
-    });
-
-    let b = new Promise((resolve) => {
-        fetch(URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `auth=${KEY}${queryString(obj)}`
-        })
-            .then(data => {
-                resolve(data.text());
-            })
-    });
-
-    Promise.all([a, b]).then(value => {
-        document.querySelector(out).textContent = value;
-    })
-}
 
 function t1() {
-    let param = {
+    let param1 = {
         'action': 1
     }
-    promiseAll(param, '.out-1')
+    let param2 = {
+        'action': 2,
+        'name': 'Сергей'
+    }
+    let a = promiseGETReq(param1, '.out-1');
+    let b = promiseGETReq(param2, '.out-1');
+    Promise.all([a, b]).then(value => {
+        console.log(value);
+        console.log(value[0]);
+        console.log(value[1]);
+    });
+    // promiseAll([promiseGETReq(param2), promiseGETReq(param1)]);
 }
 
 document.querySelector('.b-1').onclick = t1; // ваше событие здесь!!!
@@ -213,4 +237,3 @@ function t8() {
 }
 
 // ваше событие здесь!!!
-
