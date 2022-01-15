@@ -153,10 +153,34 @@ document.querySelector('.b-3').onclick = t3; // ваше событие здес
 */
 
 function t4() {
+    let param1 = {
+        'action': 7
+    };
+    let param2 = {
+        'action': 8,
+        'year': 1985
+    };
 
+    let a = new Promise((resolve, reject) => {
+        fetch(`${URL}?auth=${KEY}${queryString(param1)}`)
+            .then(data => {
+                resolve(data.text());
+            });
+    });
+
+    let b = new Promise((resolve, reject) => {
+        fetch(`${URL}?auth=${KEY}${queryString(param2)}`)
+            .then(data => {
+                resolve(data.text());
+            });
+    });
+
+    Promise.all([a, b]).then(value => {
+        document.querySelector('.out-4').textContent = value;
+    });
 }
 
-// ваше событие здесь!!!
+document.querySelector('.b-4').onclick = t4; // ваше событие здесь!!!
 
 // Task 5 ============================================
 /*  
@@ -169,11 +193,37 @@ POST запрос на сайт http://getpost.itgid.info/index2.php. В кач�
 */
 
 function t5() {
-    let param = {
+    let param1 = {
+        'action': 1
+    };
+    let param2 = {
         'action': 2,
         'name': 'Сергей'
-    };
-    promisePOSTReq(param, '.out-5');
+    }
+    let a = new Promise((resolve, reject) => {
+        fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `auth=${KEY}${queryString(param1)}`
+            })
+            .then(data => resolve(data.text()));
+    });
+
+    let b = new Promise((resolve, reject) => {
+        fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `auth=${KEY}${queryString(param2)}`
+            })
+            .then(data => resolve(data.text()));
+    });
+    Promise.all([a, b]).then(value => {
+        document.querySelector('.out-5').textContent = value;
+    });
 }
 
 document.querySelector('.b-5').onclick = t5; // ваше событие здесь!!!
@@ -194,10 +244,43 @@ document.querySelector('.b-5').onclick = t5; // ваше событие здес
 */
 
 function t6() {
+    let param1 = {
+        'action': 3,
+        'num1': 5,
+        'num2': 10
+    };
+    let param2 = {
+        'action': 4,
+        'num1': 5,
+        'num2': 10
+    }
+    let a = new Promise((resolve, reject) => {
+        fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `auth=${KEY}${queryString(param1)}`
+            })
+            .then(data => resolve(data.text()));
+    });
 
+    let b = new Promise((resolve, reject) => {
+        fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `auth=${KEY}${queryString(param2)}`
+            })
+            .then(data => resolve(data.text()));
+    });
+    Promise.all([a, b]).then(value => {
+        document.querySelector('.out-6').textContent = value;
+    });
 }
 
-// ваше событие здесь!!!
+document.querySelector('.b-6').onclick = t6; // ваше событие здесь!!!
 
 
 // Task 7 ============================================
@@ -213,10 +296,41 @@ function t6() {
 */
 
 function t7() {
+    let param1 = {
+        'action': 5
+    };
+    let param2 = {
+        'action': 6,
+        'num1': 5,
+        'num2': 10
+    }
+    let a = new Promise((resolve, reject) => {
+        fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `auth=${KEY}${queryString(param1)}`
+            })
+            .then(data => resolve(data.text()));
+    });
 
+    let b = new Promise((resolve, reject) => {
+        fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `auth=${KEY}${queryString(param2)}`
+            })
+            .then(data => resolve(data.text()));
+    });
+    Promise.all([a, b]).then(value => {
+        document.querySelector('.out-7').textContent = value;
+    });
 }
 
-// ваше событие здесь!!!
+document.querySelector('.b-7').onclick = t7; // ваше событие здесь!!!
 
 // Task 8 ============================================
 /* 
@@ -232,7 +346,37 @@ function t7() {
 */
 
 function t8() {
+    let param1 = {
+        'action': 7
+    };
+    let param2 = {
+        'action': 8,
+        'year': 1985
+    }
+    let a = new Promise((resolve, reject) => {
+        fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `auth=${KEY}${queryString(param1)}`
+            })
+            .then(data => resolve(data.text()));
+    });
 
+    let b = new Promise((resolve, reject) => {
+        fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `auth=${KEY}${queryString(param2)}`
+            })
+            .then(data => resolve(data.text()));
+    });
+    Promise.all([a, b]).then(value => {
+        document.querySelector('.out-8').textContent = value;
+    });
 }
 
-// ваше событие здесь!!!
+document.querySelector('.b-8').onclick = t8; // ваше событие здесь!!!
