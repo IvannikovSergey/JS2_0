@@ -199,7 +199,7 @@ function t5() {
     let param2 = {
         'action': 2,
         'name': 'Сергей'
-    }
+    };
     let a = new Promise((resolve, reject) => {
         fetch(URL, {
                 method: 'POST',
@@ -253,7 +253,7 @@ function t6() {
         'action': 4,
         'num1': 5,
         'num2': 10
-    }
+    };
     let a = new Promise((resolve, reject) => {
         fetch(URL, {
                 method: 'POST',
@@ -303,7 +303,7 @@ function t7() {
         'action': 6,
         'num1': 5,
         'num2': 10
-    }
+    };
     let a = new Promise((resolve, reject) => {
         fetch(URL, {
                 method: 'POST',
@@ -352,7 +352,7 @@ function t8() {
     let param2 = {
         'action': 8,
         'year': 1985
-    }
+    };
     let a = new Promise((resolve, reject) => {
         fetch(URL, {
                 method: 'POST',
