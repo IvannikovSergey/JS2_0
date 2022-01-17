@@ -4,23 +4,11 @@ class Goods2 extends Goods {
         this.sale = sale;
     }
     draw() {
-        let div = document.createElement('div');
+        let sale = super.draw();
         let p = document.createElement('p');
-        let image = document.createElement('img');
-        let p2 = document.createElement('p');
-        let p3 = document.createElement('p');
-        let p4 = document.createElement('p');
+        p.innerHTML = this.sale;
+        sale.append(p);
 
-        p.innerHTML = this.name;
-        image.src = this.image;
-        p2.innerHTML = this.amount;
-        p3.innerHTML = this.count;
-        p4.innerHTML = this.sale;
-        div.append(p);
-        div.append(image);
-        div.append(p2, p3);
-        div.append(p4);
-
-        return div;
+        return sale;
     }
 }
